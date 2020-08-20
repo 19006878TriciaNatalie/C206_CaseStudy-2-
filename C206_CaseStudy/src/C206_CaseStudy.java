@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class C206_CaseStudy {
 
+	private static final int OPTION_INVENTORY = 1;
 	private static final int TRANSACTION_VIEWALL = 2;//Code Refactoring done by Jia Wei
 	private static final int ARCHIVE_DATA = 3;//Code Refactoring done by Jia Wei
 	private static final int OPTION_TRANSACTION = 4;//Code Refactoring done by Jia Wei
@@ -35,7 +36,7 @@ public class C206_CaseStudy {
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
-			if (option == 1) {
+			if (option == OPTION_INVENTORY) {
 				// inventory
 				C206_CaseStudy.Service_menu(option);
 				int seroption = Helper.readInt("Enter service option > ");
