@@ -15,7 +15,11 @@ public class Electronics extends Product {
 		this.serial_number = serial_number;
 	}
 
-	
+	public String toString(){//Code refactoring Done by Jia Wei
+		String output = super.toString();
+		// Write your codes here
+		return String.format("%-60s %-20d", output,getSerial_number());
+	}
 	 
 	
 

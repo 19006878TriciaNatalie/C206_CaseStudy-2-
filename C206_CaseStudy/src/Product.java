@@ -4,6 +4,7 @@ private int product_id;
 private String product_name;
 private String vendor_name;
 private int quanity;
+//add product price
 public Product(int product_id, String product_name, String vendor_name, int quanity) {
 	super();
 	this.product_id = product_id;
@@ -36,5 +37,9 @@ public void setQuanity(int quanity) {
 	this.quanity = quanity;
 }
 
-
+public String toString() {//Code refactoring Done by Jia Wei
+	return  String.format("%-20d %-20s %-20d %-20s", getProduct_id(),
+			getProduct_name(), 
+			getQuanity(),getVendor_name());
+}
 }

@@ -27,6 +27,9 @@ public class Tracker extends Customer{
 	public void setTracking_type(String tracking_type) {
 		this.tracking_type = tracking_type;
 	}
-	
+	public String toString() {//Code refactoring Done by Tricia
+		return String.format("%-20d %-20s %-20d %-20d", getTracking_id(),getTracking_type(),getCustomer_id(),
+				getCustomer_contactNo());
+	}
 
 }

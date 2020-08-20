@@ -17,5 +17,9 @@ public void setExpiration_date(int expiration_date) {
 public void display() {
 	
 }
-
+public String toString(){//Code refactoring Done by Jia Wei
+	String output = super.toString();
+	// Write your codes here
+	return String.format("%-60s %-20d", output,getExpiration_date());
+}
 }

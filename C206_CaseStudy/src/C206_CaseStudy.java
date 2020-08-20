@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 public class C206_CaseStudy {
 
-	private static final int TRANSACTION_VIEWALL = 2;//Code Refactoring
-	private static final int ARCHIVE_DATA = 3;//Code Refactoring
-	private static final int OPTION_TRANSACTION = 4;//Code Refactoring
-	private static final int OPTION_CUSTOMER = 3;//Code Refactoring
-	private static final int OPTION_OUTLET = 2;//Code Refactoring
-	private static final int VIEW_ALL = 3;//Code Refactoring
-	private static final int DELETE = 2;//Code Refactoring
-	private static final int ELECTRONICS = 2;//Code Refactoring
-	private static final int FOOD = 1;//Code Refactoring
-	private static final int ADD = 1;//Code Refactoring
-	private static final int OPTION_QUIT = 5;//Code Refactoring
+	private static final int TRANSACTION_VIEWALL = 2;//Code Refactoring done by Jia Wei
+	private static final int ARCHIVE_DATA = 3;//Code Refactoring done by Jia Wei
+	private static final int OPTION_TRANSACTION = 4;//Code Refactoring done by Jia Wei
+	private static final int OPTION_CUSTOMER = 3;//Code Refactoring done by Jia Wei
+	private static final int OPTION_OUTLET = 2;//Code Refactoring done by Jia Wei
+	private static final int VIEW_ALL = 3;//Code Refactoring done by Jia Wei
+	private static final int DELETE = 2;//Code Refactoring done by Jia Wei
+	private static final int ELECTRONICS = 2;//Code Refactoring done by Jia Wei
+	private static final int FOOD = 1;//Code Refactoring done by Jia Wei
+	private static final int ADD = 1;//Code Refactoring done by Jia Wei
+	private static final int OPTION_QUIT = 5;//Code Refactoring done by Jia Wei
 	public static void main(String[] args) {
 		ArrayList<Food> foodList = new ArrayList<Food>();
 		foodList.add(new Food(1, "Noodles", "Noodle maker", 12, 11122020));
@@ -189,7 +189,7 @@ public class C206_CaseStudy {
 
 //=================Option 1 Product===============================(Jia Wei)
 	//=================Add===============================(Jia Wei)
-	public static Food inputFood() { //Code Refactoring
+	public static Food inputFood() { //Code Refactoring done by Jia Wei
 		int product_id = Helper.readInt("Enter Product ID > ");
 		String product_name = Helper.readString("Enter Product name > ");
 		String vendor_name = Helper.readString("Enter vendor name > ");
@@ -200,13 +200,13 @@ public class C206_CaseStudy {
 		return fd;
 		
 	}
-	public static void addFood(ArrayList<Food> foodList, Food fd) {  //Code Refactoring
+	public static void addFood(ArrayList<Food> foodList, Food fd) {  //Code Refactoring done by Jia Wei
 		
 		foodList.add(fd);
 		System.out.println("Food added");
 	}
 	
-	public static Electronics inputEle() {//Code Refactoring
+	public static Electronics inputEle() {//Code Refactoring done by Jia Wei
 		int product_id = Helper.readInt("Enter Product ID > ");
 		String product_name = Helper.readString("Enter Product name > ");
 		String vendor_name = Helper.readString("Enter vendor name > ");
@@ -217,13 +217,13 @@ public class C206_CaseStudy {
 		return el;
 		
 	}
-	public static void addEle(ArrayList<Electronics> electronicsList, Electronics el) {//Code Refactoring
+	public static void addEle(ArrayList<Electronics> electronicsList, Electronics el) {//Code Refactoring done by Jia Wei
 		
 		electronicsList.add(el);
 		System.out.println("Electronic added");
 	}
 	//=================Delete===============================(Jia Wei)
-	public static void removeFood(ArrayList<Food> foodList) {//Code Refactoring
+	public static void removeFood(ArrayList<Food> foodList) {//Code Refactoring done by Jia Wei
 	if(foodList.size()==0) {
 		System.out.println("There is nothing to be deleted in the list.");
 	}else {
@@ -236,11 +236,11 @@ public class C206_CaseStudy {
 	}
 	}
 	}
-	public static String confirmationFood(ArrayList<Food> foodList, int productpos) {//Code Refactoring
+	public static String confirmationFood(ArrayList<Food> foodList, int productpos) {//Code Refactoring done by Jia Wei
 		String yes_no=Helper.readString("You sure want to delete "+foodList.get(productpos).getProduct_name()+" ? (Yes/No)>");
 		return yes_no;
 	}
-	public static int locateFood(ArrayList<Food> foodList) {//Code Refactoring
+	public static int locateFood(ArrayList<Food> foodList) {//Code Refactoring done by Jia Wei
 		int product_id=Helper.readInt("Enter product ID that you want to remove >");
 		int productpos=-1;
 		for (int i=0;i<foodList.size();i++) {
@@ -251,7 +251,7 @@ public class C206_CaseStudy {
 		return productpos;
 	}
 	
-	public static void removeEle(ArrayList<Electronics> electronicsList) {//Code Refactoring
+	public static void removeEle(ArrayList<Electronics> electronicsList) {//Code Refactoring done by Jia Wei
 		if(electronicsList.size()==0) {
 			System.out.println("There is nothing to be deleted in the list.");
 		}else {
@@ -264,11 +264,11 @@ public class C206_CaseStudy {
 		}
 		}	
 	}
-	public static String confirmationEle(ArrayList<Electronics> electronicsList, int productpos) {//Code Refactoring
+	public static String confirmationEle(ArrayList<Electronics> electronicsList, int productpos) {//Code Refactoring done by Jia Wei
 		String yes_no=Helper.readString("You sure want to delete "+electronicsList.get(productpos).getProduct_name()+" ? (Yes/No)>");
 		return yes_no;
 	}
-	public static int locateEle(ArrayList<Electronics> electronicsList) {//Code Refactoring
+	public static int locateEle(ArrayList<Electronics> electronicsList) {//Code Refactoring done by Jia Wei
 		int product_id=Helper.readInt("Enter product ID that you want to remove >");
 		int productpos=-1;
 		for (int i=0;i<electronicsList.size();i++) {
@@ -279,33 +279,29 @@ public class C206_CaseStudy {
 		return productpos;
 	}
 	//=================view all===============================(Jia Wei)
-	public static String retrieveAllFoodProduct(ArrayList<Food> foodList) {
+	public static String retrieveAllFoodProduct(ArrayList<Food> foodList) {//Code refactoring done by Jia Wei
 		String output="";
 		for (int i = 0; i < foodList.size(); i++) {
-			output += String.format("%-20d %-20s %-20d %-20d %-20s\n", foodList.get(i).getProduct_id(),
-					foodList.get(i).getProduct_name(),foodList.get(i).getExpiration_date(), 
-					foodList.get(i).getQuanity(),foodList.get(i).getVendor_name());
+			output += String.format("%-100s\n", foodList.get(i).toString());//Code refactoring done by Jia Wei
 		}
 		return output;
 	}
-	public static void viewFoodProduct(ArrayList<Food> foodList) {
+	public static void viewFoodProduct(ArrayList<Food> foodList) {//Code refactoring done by Jia Wei
 		C206_CaseStudy.setHeader("FOOD LIST");
-		String output = String.format("%-20s %-20s %-20s %-20s %-20s\n", "PRODUCT ID", "PRODUCT NAME",
-				"EXPIRATION DATE", "QUANTITY","VENDOR");
+		String output = String.format("%-20s %-20s %-20s %-20s %-20s\n", "PRODUCT ID", "PRODUCT NAME", "QUANTITY","VENDOR",
+				"EXPIRATION DATE");
 		 output += retrieveAllFoodProduct(foodList);	
 		System.out.println(output);
 	}
 	
-	public static String retrieveAllEleProduct(ArrayList<Electronics> electronicsList) {
+	public static String retrieveAllEleProduct(ArrayList<Electronics> electronicsList) {//Code refactoring done by Jia Wei
 		String output="";
 		for (int i = 0; i < electronicsList.size(); i++) {
-			output += String.format("%-20d %-20s %-20d %-20d %-20s\n", electronicsList.get(i).getProduct_id(),
-					electronicsList.get(i).getProduct_name(),electronicsList.get(i).getSerial_number(), 
-					electronicsList.get(i).getQuanity(),electronicsList.get(i).getVendor_name());
+			output += String.format("%-100s\n", electronicsList.get(i).toString());//Code refactoring done by Jia Wei
 		}
 		return output;
 	}
-	public static void viewEleProduct(ArrayList<Electronics> electronicsList) {
+	public static void viewEleProduct(ArrayList<Electronics> electronicsList) {//Code refactoring done by Jia Wei
 		C206_CaseStudy.setHeader("ELECTRONIC LIST");
 		String output = String.format("%-20s %-20s %-20s %-20s %-20s\n", "PRODUCT ID", "PRODUCT NAME",
 				"SERIAL NUMBER", "QUANTITY","VENDOR");
@@ -315,7 +311,7 @@ public class C206_CaseStudy {
 	
 	//=================Option 2 Outlet===============================(Yan Xin)
 	//=================Add===============================(Yan Xin)
-	public static Outlet inputOutlet() {
+	public static Outlet inputOutlet() {//Code refactoring done by Yan Xin
 		int outlet_id = Helper.readInt("Enter Outlet ID > ");
 		String outlet_name = Helper.readString("Enter Outlet name > ");
 		String location = Helper.readString("Enter Location > ");
@@ -325,7 +321,7 @@ public class C206_CaseStudy {
 		return ou;
 		
 	}
-	public static void addOutlet(ArrayList<Outlet> outletList, Outlet ou) {
+	public static void addOutlet(ArrayList<Outlet> outletList, Outlet ou) {//Code refactoring done by Yan Xin
 		
 		outletList.add(ou);
 		System.out.println("Outlet added");
@@ -336,26 +332,33 @@ public class C206_CaseStudy {
 		System.out.println("There is nothing to be deleted in the list.");
 	}else {
 	C206_CaseStudy.viewOutlet(outletList);
-	int outlet_id=Helper.readInt("Enter outlet ID that you want to remove >");
-	int outletpos=-1;
-	for (int i=0;i<outletList.size();i++) {
-		if (outlet_id==outletList.get(i).getOutlet_id()) {
-			outletpos=i;
-		}
-	}
-	String yes_no=Helper.readString("You sure want to delete "+outletList.get(outletpos).getOutlet_name()+" ? (Yes/No)>");
+	int outletpos = locateOutlet(outletList);
+	String yes_no = confirmationOulet(outletList, outletpos);
 	if (yes_no.equalsIgnoreCase("Yes")) {
 		outletList.remove(outletpos);
 		System.out.println("Outlet has been deleted");
 	}
 	}
 	}
+	public static String confirmationOulet(ArrayList<Outlet> outletList, int outletpos) { //Code refactoring done by Yan Xin
+		String yes_no=Helper.readString("You sure want to delete "+outletList.get(outletpos).getOutlet_name()+" ? (Yes/No)>");
+		return yes_no;
+	}
+	public static int locateOutlet(ArrayList<Outlet> outletList) {//Code refactoring done by Yan Xin
+		int outlet_id=Helper.readInt("Enter outlet ID that you want to remove >");
+		int outletpos=-1;
+		for (int i=0;i<outletList.size();i++) {
+			if (outlet_id==outletList.get(i).getOutlet_id()) {
+				outletpos=i;
+			}
+		}
+		return outletpos;
+	}
 	//=================view all===============================(Yan Xin)
 	public static String retrieveAllOutlet(ArrayList<Outlet> outletList) {
 		String output="";
 		for (int i = 0; i < outletList.size(); i++) {
-			output += String.format("%-20d %-20s %-20s \n", outletList.get(i).getOutlet_id(),
-					outletList.get(i).getOutlet_name(),outletList.get(i).getLocation());
+			output += String.format("%-60s \n", outletList.get(i).toString());////Code refactoring done by Yan Xin
 		}
 		return output;
 	}
@@ -372,7 +375,7 @@ public class C206_CaseStudy {
 		int customer_id = Helper.readInt("Enter Customer ID > ");
 		String customer_name = Helper.readString("Enter Customer name > ");
 		int customer_contactNo = Helper.readInt("Enter Customer contact number > ");
-		int reward_point=Helper.readInt("Enter the reward code >");
+		int reward_point=Helper.readInt("Enter the reward point >");
 
 		
 		Customer cu=new Customer(customer_id, customer_name, customer_contactNo, reward_point);
@@ -397,12 +400,16 @@ public class C206_CaseStudy {
 			customerpos=i;
 		}
 	}
-	String yes_no=Helper.readString("You sure want to delete "+customerList.get(customerpos).getCustomer_id()+" ? (Yes/No)>");
+	String yes_no = confirmationCustomer(customerList, customerpos);
 	if (yes_no.equalsIgnoreCase("Yes")) {
 		customerList.remove(customerpos);
 		System.out.println("Outlet has been deleted");
 	}
 	}
+	}
+	public static String confirmationCustomer(ArrayList<Customer> customerList, int customerpos) {
+		String yes_no=Helper.readString("You sure want to delete "+customerList.get(customerpos).getCustomer_id()+" ? (Yes/No)>");
+		return yes_no;
 	}
 	//=================view all===============================(Cheryl)
 	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {
@@ -442,21 +449,20 @@ public class C206_CaseStudy {
 		return tr;
 		
 	}
-	public static void addTransaction(ArrayList<Tracker> trackList, Tracker tr) {
+	public static void addTransaction(ArrayList<Tracker> trackList, Tracker tr) {//Code refactoring Done by Tricia
 		
 		trackList.add(tr);
 		System.out.println("Transaction added");
 	}
 	//=================view all=================================(Tricia)
-	public static String retrieveAllTransaction(ArrayList<Tracker> trackList) {
+	public static String retrieveAllTransaction(ArrayList<Tracker> trackList) {//Code refactoring Done by Tricia
 		String output="";
 		for (int i = 0; i < trackList.size(); i++) {
-			output += String.format("%-20d %-20s %-20d %-20d \n", trackList.get(i).getTracking_id(),trackList.get(i).getTracking_type(),trackList.get(i).getCustomer_id(),
-					trackList.get(i).getCustomer_contactNo());
+			output += String.format("%-80s \n", trackList.get(i).toString());//Code refactoring Done by Tricia
 		}
 		return output;
 	}
-	public static void viewTransaction(ArrayList<Tracker> trackList) {
+	public static void viewTransaction(ArrayList<Tracker> trackList) {//Code refactoring Done by Tricia
 		C206_CaseStudy.setHeader("TRANSACTION LIST");
 		String output = String.format("%-20s %-20s %-20s %-20s \n", "TRACKING ID", "TRACKING TYPE",
 				"CUSTOMER ID","CUSTOMER CONTACT NUMBER");
@@ -469,13 +475,9 @@ public class C206_CaseStudy {
 		System.out.println("There is nothing in the list to archive");
 	}else {
 		C206_CaseStudy.viewTransaction(trackList);
-		String yes_no=Helper.readString("Are you sure you want archive old transaction? (Yes/No) >");
+		String yes_no = confimationTransaction();
 		if(yes_no.equalsIgnoreCase("Yes")) {
-		for(int i=0;i<trackList.size();i++) {
-		oldtrackList.add(oldtrackList.size(),trackList.get(i));
-		}
-		trackList.clear();
-		System.out.println("List has been archived");
+		movingToArchivelist(trackList, oldtrackList);
 		}else {
 			System.out.println("Going back to home page");
 		}
@@ -483,6 +485,17 @@ public class C206_CaseStudy {
 			
 	}
 		
+	}
+	public static String confimationTransaction() {//Code refactoring Done by Tricia
+		String yes_no=Helper.readString("Are you sure you want archive old transaction? (Yes/No) >");
+		return yes_no;
+	}
+	public static void movingToArchivelist(ArrayList<Tracker> trackList, ArrayList<Tracker> oldtrackList) {//Code refactoring Done by Tricia
+		for(int i=0;i<trackList.size();i++) {
+		oldtrackList.add(oldtrackList.size(),trackList.get(i));
+		}
+		trackList.clear();
+		System.out.println("List has been archived");
 	}
 	
 

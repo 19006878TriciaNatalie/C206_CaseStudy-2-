@@ -27,4 +27,8 @@ public String getLocation() {
 public void setLocation(String location) {
 	this.location = location;
 }
+public String toString() {//Code Refactoring Done by Yan Xin
+	return String.format("%-20d %-20s %-20s", getOutlet_id(),getOutlet_name(),getLocation());
+}
+
 }
