@@ -36,6 +36,9 @@ public int getReward_point() {
 public void setReward_point(int reward_point) {
 	this.reward_point = reward_point;
 }
-
+public String toString() {
+	return String.format("%-20d %-20s %-20d %-20d", getCustomer_id(),
+			getCustomer_name(),getCustomer_contactNo(),getReward_point());
+}
 
 }

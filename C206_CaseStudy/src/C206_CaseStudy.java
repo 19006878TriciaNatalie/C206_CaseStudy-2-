@@ -371,7 +371,7 @@ public class C206_CaseStudy {
 	}
 	//=================Option 3 Customer===============================(Cheryl)
 	//=================Add====================================(Cheryl)
-	public static Customer inputCustomer() {
+	public static Customer inputCustomer() {//Code Refactoring Done by Cheryl
 		int customer_id = Helper.readInt("Enter Customer ID > ");
 		String customer_name = Helper.readString("Enter Customer name > ");
 		int customer_contactNo = Helper.readInt("Enter Customer contact number > ");
@@ -382,7 +382,7 @@ public class C206_CaseStudy {
 		return cu;
 		
 	}
-	public static void addOutlet(ArrayList<Customer> customerList, Customer cu) {
+	public static void addOutlet(ArrayList<Customer> customerList, Customer cu) {//Code Refactoring Done by Cheryl
 		
 		customerList.add(cu);
 		System.out.println("Customer added");
@@ -392,14 +392,7 @@ public class C206_CaseStudy {
 	if(customerList.size()==0) {
 		System.out.println("There is nothing to be deleted in the list.");
 	}else {
-	C206_CaseStudy.viewCustomer(customerList);
-	int customer_id=Helper.readInt("Enter customer ID that you want to remove >");
-	int customerpos=-1;
-	for (int i=0;i<customerList.size();i++) {
-		if (customer_id==customerList.get(i).getCustomer_id()) {
-			customerpos=i;
-		}
-	}
+	int customerpos = locateCustomer(customerList);
 	String yes_no = confirmationCustomer(customerList, customerpos);
 	if (yes_no.equalsIgnoreCase("Yes")) {
 		customerList.remove(customerpos);
@@ -407,20 +400,30 @@ public class C206_CaseStudy {
 	}
 	}
 	}
-	public static String confirmationCustomer(ArrayList<Customer> customerList, int customerpos) {
+	public static int locateCustomer(ArrayList<Customer> customerList) {//Code Refactoring Done by Cheryl
+		C206_CaseStudy.viewCustomer(customerList);
+		int customer_id=Helper.readInt("Enter customer ID that you want to remove >");
+		int customerpos=-1;
+		for (int i=0;i<customerList.size();i++) {
+			if (customer_id==customerList.get(i).getCustomer_id()) {
+				customerpos=i;
+			}
+		}
+		return customerpos;
+	}
+	public static String confirmationCustomer(ArrayList<Customer> customerList, int customerpos) {//Code Refactoring Done by Cheryl
 		String yes_no=Helper.readString("You sure want to delete "+customerList.get(customerpos).getCustomer_id()+" ? (Yes/No)>");
 		return yes_no;
 	}
 	//=================view all===============================(Cheryl)
-	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {
+	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {//Code Refactoring Done by Cheryl
 		String output="";
 		for (int i = 0; i < customerList.size(); i++) {
-			output += String.format("%-20d %-20s %-20d %-20d \n", customerList.get(i).getCustomer_id(),
-					customerList.get(i).getCustomer_name(),customerList.get(i).getCustomer_contactNo(),customerList.get(i).getReward_point());
+			output += String.format("%-80s \n", customerList.get(i).toString());
 		}
 		return output;
 	}
-	public static void viewCustomer(ArrayList<Customer> customerList) {
+	public static void viewCustomer(ArrayList<Customer> customerList) {//Code Refactoring Done by Cheryl
 		C206_CaseStudy.setHeader("CUSTOMER LIST");
 		String output = String.format("%-20s %-20s %-20s %-20s \n", "CUSTOMER ID", "CUSTOMER NAME",
 				"CONTACT NUMBER","REWARD POINT");
