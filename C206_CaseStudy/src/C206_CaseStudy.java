@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 public class C206_CaseStudy {
 
-	private static final int TRANSACTION_VIEWALL = 2;
-	private static final int ARCHIVE_DATA = 3;
-	private static final int OPTION_TRANSACTION = 4;
-	private static final int OPTION_CUSTOMER = 3;
-	private static final int OPTION_OUTLET = 2;
-	private static final int VIEW_ALL = 3;
-	private static final int DELETE = 2;
-	private static final int ELECTRONICS = 2;
-	private static final int FOOD = 1;
-	private static final int ADD = 1;
-	private static final int OPTION_QUIT = 5;
+	private static final int TRANSACTION_VIEWALL = 2;//Code Refactoring
+	private static final int ARCHIVE_DATA = 3;//Code Refactoring
+	private static final int OPTION_TRANSACTION = 4;//Code Refactoring
+	private static final int OPTION_CUSTOMER = 3;//Code Refactoring
+	private static final int OPTION_OUTLET = 2;//Code Refactoring
+	private static final int VIEW_ALL = 3;//Code Refactoring
+	private static final int DELETE = 2;//Code Refactoring
+	private static final int ELECTRONICS = 2;//Code Refactoring
+	private static final int FOOD = 1;//Code Refactoring
+	private static final int ADD = 1;//Code Refactoring
+	private static final int OPTION_QUIT = 5;//Code Refactoring
 	public static void main(String[] args) {
 		ArrayList<Food> foodList = new ArrayList<Food>();
 		foodList.add(new Food(1, "Noodles", "Noodle maker", 12, 11122020));
@@ -189,7 +189,7 @@ public class C206_CaseStudy {
 
 //=================Option 1 Product===============================(Jia Wei)
 	//=================Add===============================(Jia Wei)
-	public static Food inputFood() {
+	public static Food inputFood() { //Code Refactoring
 		int product_id = Helper.readInt("Enter Product ID > ");
 		String product_name = Helper.readString("Enter Product name > ");
 		String vendor_name = Helper.readString("Enter vendor name > ");
@@ -200,13 +200,13 @@ public class C206_CaseStudy {
 		return fd;
 		
 	}
-	public static void addFood(ArrayList<Food> foodList, Food fd) {
+	public static void addFood(ArrayList<Food> foodList, Food fd) {  //Code Refactoring
 		
 		foodList.add(fd);
 		System.out.println("Food added");
 	}
 	
-	public static Electronics inputEle() {
+	public static Electronics inputEle() {//Code Refactoring
 		int product_id = Helper.readInt("Enter Product ID > ");
 		String product_name = Helper.readString("Enter Product name > ");
 		String vendor_name = Helper.readString("Enter vendor name > ");
@@ -217,13 +217,13 @@ public class C206_CaseStudy {
 		return el;
 		
 	}
-	public static void addEle(ArrayList<Electronics> electronicsList, Electronics el) {
+	public static void addEle(ArrayList<Electronics> electronicsList, Electronics el) {//Code Refactoring
 		
 		electronicsList.add(el);
 		System.out.println("Electronic added");
 	}
 	//=================Delete===============================(Jia Wei)
-	public static void removeFood(ArrayList<Food> foodList) {
+	public static void removeFood(ArrayList<Food> foodList) {//Code Refactoring
 	if(foodList.size()==0) {
 		System.out.println("There is nothing to be deleted in the list.");
 	}else {
@@ -236,11 +236,11 @@ public class C206_CaseStudy {
 	}
 	}
 	}
-	public static String confirmationFood(ArrayList<Food> foodList, int productpos) {
+	public static String confirmationFood(ArrayList<Food> foodList, int productpos) {//Code Refactoring
 		String yes_no=Helper.readString("You sure want to delete "+foodList.get(productpos).getProduct_name()+" ? (Yes/No)>");
 		return yes_no;
 	}
-	public static int locateFood(ArrayList<Food> foodList) {
+	public static int locateFood(ArrayList<Food> foodList) {//Code Refactoring
 		int product_id=Helper.readInt("Enter product ID that you want to remove >");
 		int productpos=-1;
 		for (int i=0;i<foodList.size();i++) {
@@ -251,20 +251,24 @@ public class C206_CaseStudy {
 		return productpos;
 	}
 	
-	public static void removeEle(ArrayList<Electronics> electronicsList) {
+	public static void removeEle(ArrayList<Electronics> electronicsList) {//Code Refactoring
 		if(electronicsList.size()==0) {
 			System.out.println("There is nothing to be deleted in the list.");
 		}else {
 		C206_CaseStudy.viewEleProduct(electronicsList);
 		int productpos = locateEle(electronicsList);
-		String yes_no=Helper.readString("You sure want to delete "+electronicsList.get(productpos).getProduct_name()+" ? (Yes/No)>");
+		String yes_no = confirmationEle(electronicsList, productpos);
 		if (yes_no.equalsIgnoreCase("Yes")) {
 			electronicsList.remove(productpos);
 			System.out.println("Electronics has been deleted");
 		}
 		}	
 	}
-	public static int locateEle(ArrayList<Electronics> electronicsList) {
+	public static String confirmationEle(ArrayList<Electronics> electronicsList, int productpos) {//Code Refactoring
+		String yes_no=Helper.readString("You sure want to delete "+electronicsList.get(productpos).getProduct_name()+" ? (Yes/No)>");
+		return yes_no;
+	}
+	public static int locateEle(ArrayList<Electronics> electronicsList) {//Code Refactoring
 		int product_id=Helper.readInt("Enter product ID that you want to remove >");
 		int productpos=-1;
 		for (int i=0;i<electronicsList.size();i++) {
