@@ -5,8 +5,8 @@ public class Tracker extends Customer{
 
 
 	public Tracker(int customer_id, String customer_name, int customer_contactNo, int reward_point, int tracking_id,
-			String tracking_type) {
-		super(customer_id, customer_name, customer_contactNo, reward_point);
+			String tracking_type,int number_transaction, int number_return) {
+		super(customer_id, customer_name, customer_contactNo, reward_point,number_transaction,number_return);
 		this.tracking_id = tracking_id;
 		this.tracking_type = tracking_type;
 	}
@@ -28,8 +28,9 @@ public class Tracker extends Customer{
 		this.tracking_type = tracking_type;
 	}
 	public String toString() {//Code refactoring Done by Tricia
-		return String.format("%-20d %-20s %-20d %-20d", getTracking_id(),getTracking_type(),getCustomer_id(),
+		return String.format("%-20d %-20s %-20d %-20d ", getTracking_id(),getTracking_type(),getCustomer_id(),
 				getCustomer_contactNo());
 	}
+	
 
 }
